@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date A Live Character Gallery</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #0d1f33, #3e536b);
+            color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #112240;
+            padding: 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .tab {
+            padding: 8px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            color: white;
+            background: #1e3b5a;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            text-align: center;
+        }
+
+        .tab:hover, .tab.active {
+            background-color: #f0f0f0;
+            color: #1e3b5a;
+            transform: translateY(-2px);
+        }
+
+        /* Content Styling */
+        .tab-content {
+            display: none;
+            padding: 15px;
+            margin: 10px auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            width: 90%;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 80px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .item img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 3px;
+            border-radius: 50%;
+            border: 2px solid #f0f0f0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .item p {
+            margin: 0;
+            color: #f0f0f0;
+            font-weight: bold;
+            font-size: 10px;
+            text-align: center;
+        }
+
+        .item:hover {
+            transform: scale(1.1);
+            animation: bounce 0.5s;
+        }
+
+        .item img:hover {
+            transform: rotate(5deg);
+            border-color: #0da8ec;
+            box-shadow: 0 0 5px #f0f0f0;
+        }
+
+
+
+        /* Additional Sections */
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .gallery img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .info {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .info h2 {
+            margin-bottom: 15px;
+        }
+
+        .news, .videos, .faq {
+            margin: 20px auto;
+            max-width: 800px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .news h2, .videos h2, .faq h2 {
+            margin-bottom: 15px;
+        }
+
+        .news-item, .video-item, .faq-item {
+            margin-bottom: 10px;
+        }
+
+        .video-item iframe {
+            width: 100%;
+            height: 315px;
+            border: 0;
+        }
+
+        .faq-item {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  background-color: #222;
+  color: #fff;
+}
+
+.content {
+  flex: 1; /* Membuat konten utama fleksibel untuk memenuhi ruang */
+  padding: 20px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  background-color: #222;
+  color: #fff;
+  margin: 0;
+}
+
+.content {
+  flex: 1; /* Membuat konten utama fleksibel untuk memenuhi ruang */
+  padding: 20px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #222;
+  color: #fff;
+  margin: 0;
+  padding-bottom: 60px; /* Memberikan ruang untuk footer */
+  position: relative;
+  min-height: 100vh; /* Menjaga tinggi minimum body */
+}
+
+.content {
+  padding: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #222;
+  color: #fff;
+  margin: 0;
+  padding-bottom: 80px; /* Memberikan ruang lebih untuk footer */
+  position: relative;
+  min-height: 100vh; /* Menjaga tinggi minimum body */
+}
+
+.content {
+  padding: 20px;
+}
+
+.footer {
+  background-color: #111;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  position: fixed; /* Tetap berada di bagian bawah */
+  bottom: 0; /* Menempatkan di bagian bawah jendela browser */
+  left: 0;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.footer-text,
+.footer-links {
+  color: #ddd;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 5px 0;
+  transition: color 0.3s ease;
+}
+
+.footer-links a {
+  color: #ff6b6b;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('main')">Main Characters</div>
+            <div class="tab" onclick="showTab('spirit')">Spirit</div>
+            <div class="tab" onclick="showTab('ratatoskr')">Ratatoskr</div>
+            <div class="tab" onclick="showTab('dem')">Deus Ex Machina (DEM)</div>
+            <div class="tab" onclick="showTab('ast')">Anti-Spirit Team (AST)</div>
+            <div class="tab" onclick="showTab('sss')">Special Sorcery Service (SSS)</div>
+            <div class="tab" onclick="showTab('raizen')">Raizen High School</div>
+            <div class="tab" onclick="showTab('other')">Other Characters</div>
+            <div class="tab" onclick="showTab('quasi')">Quasi-Spirits</div>
+            <div class="tab" onclick="showTab('info')">Info Anime</div>
+            <div class="tab" onclick="showTab('news')">Berita Terbaru</div>
+            <div class="tab" onclick="showTab('videos')">Video Terbaru</div>
+            <div class="tab" onclick="showTab('faq')">FAQ</div>
+        </div>
+    </div>
+
+    <!-- Tab Contents -->
+    <div id="main" class="tab-content active">
+        <h2>Main Characters</h2>
+        <div class="list">
+            <div class="item"><img src="https://i.postimg.cc/RF8nY9NB/thumb01.jpg" alt="Shido Icon"><p>Shido</p></div>
+            <div class="item"><img src="https://i.postimg.cc/CMXtV6tM/thumb02.jpg" alt="Tohka Icon"><p>Tohka</p></div>
+            <div class="item"><img src="https://i.postimg.cc/K8yH13xd/thumb04.jpg" alt="Kotori Icon"><p>Kotori</p></div>
+            <div class="item"><img src="https://i.postimg.cc/HsMNW9Dw/thumb03.jpg" alt="Origami Icon"><p>Origami</p></div>
+            <div class="item"><img src="https://i.postimg.cc/WbtdM0bv/thumb13-2.jpg" alt="mio Icon"><p>mio</p></div>
+            <div class="item"><img src="https://i.postimg.cc/43f25CKP/Mana-Icon.jpg" alt="Mana Icon"><p>Mana</p></div>
+        </div>
+    </div>
+
+    <div id="spirit" class="tab-content">
+        <h2>Spirits</h2>
+        <div class="list">
+            <div class="item"><img src="https://i.postimg.cc/CMXtV6tM/thumb02.jpg" alt="Tohka Icon"><p>Tohka</p></div>
+            <div class="item"><img src="https://i.postimg.cc/43f25CKP/Mana-Icon.jpg" alt="Mana Icon"><p>Mana</p></div>
+            <!-- Add more items here -->
+            <div class="item"><img src="https://i.postimg.cc/1t4WkprN/thumb05.jpg" alt="Yoshino Icon"><p>Yoshino</p></div>
+<div class="item"><img src="https://i.postimg.cc/nrD3zp5F/thumb06.jpg" alt="Kurumi Icon"><p>Kurumi</p></div>
+<div class="item"><img src="https://i.postimg.cc/Y2Gn8zS5/thumb08.jpg" alt="Kaguya Icon"><p>Kaguya</p></div>
+<div class="item"><img src="https://i.postimg.cc/jqp81nwL/thumb07.jpg" alt="Yuzuru Icon"><p>Yuzuru</p></div>
+<div class="item"><img src="https://i.postimg.cc/zB9k44f9/thumb09.jpg" alt="Miku Icon"><p>Miku</p></div>
+<div class="item"><img src="https://i.postimg.cc/BnMBJj65/thumb10.jpg" alt="Natsumi Icon"><p>Natsumi</p></div>
+<div class="item"><img src="https://i.postimg.cc/rmt1Gg9g/thumb11.jpg" alt="Nia Icon"><p>Nia</p></div>
+<div class="item"><img src="https://i.postimg.cc/Bb9xmDY3/thumb12.jpg" alt="Mukuro Icon"><p>Mukuro</p></div>
+<div class="item"><img src="https://i.postimg.cc/XNdKpHqY/Tenka-Icon.jpg" alt="Tenka Icon"><p>Tenka</p></div>
+<div class="item"><img src="https://i.postimg.cc/VLwqMq0B/Mayuri-Icon.jpg" alt="Mayuri Icon"><p>Mayuri</p></div>
+<div class="item"><img src="https://i.postimg.cc/T3YnNT9K/Rinne-Icon.jpg" alt="Rinne Icon"><p>Rinne</p></div>
+<div class="item"><img src="https://i.postimg.cc/26vWLyzK/Maria-Arusu-Icon.jpg" alt="Maria Arusu Icon"><p>Maria</p></div>
+<div class="item"><img src="https://i.postimg.cc/PJjwWHJr/Marina-Arusu-Icon.jpg" alt="Marina Arusu Icon"><p>Marina</p></div>
+<div class="item"><img src="https://i.postimg.cc/3rXpKkfy/Rio-Icon.jpg" alt="Rio Icon"><p>Rio</p></div>
+<div class="item"><img src="https://i.postimg.cc/WbSkkQvT/Ren-Icon.jpg" alt="Ren Icon"><p>Ren</p></div>
+<div class="item"><img src="https://i.postimg.cc/vBRgyyWL/Nibelcole-Icon.jpg" alt="Nibelcole Icon"><p>Nibelcole</p></div>
+<div class="item"><img src="https://i.postimg.cc/Kjx1K5p1/White-Queen-Icon.jpg" alt="White Queen Icon"><p>White Queen</p></div>
+<div class="item"><img src="https://i.postimg.cc/KcDK6d4B/Yamai-Kazamachi-Icon.jpg" alt="Yamai Kazamachi Icon"><p>Yamai</p></div>
+<div class="item"><img src="https://i.postimg.cc/sgvvZxm4/Beast-Icon.jpg" alt="Beast Icon"><p>Beast</p></div>
+
+        </div>
+    </div>
+
+    <div id="ratatoskr" class="tab-content">
+        <h2>Ratatoskr</h2>
+        <div class="list">
+            <div class="item"><img src="ratatoskr1.png" alt="Ratatoskr Icon"><p>Ratatoskr</p></div>
+            <!-- Add more items here -->
+            <div class="item"><img src="https://i.postimg.cc/pL4yQv1b/Reine-Icon.jpg" alt="Reine Icon"><p>Reine</p></div>
+<div class="item"><img src="https://i.postimg.cc/ydXdzZ6s/Kannazuki-Icon.jpg" alt="Kannazuki Icon"><p>Kannazuki</p></div>
+<div class="item"><img src="https://i.postimg.cc/43f25CKP/Mana-Icon.jpg" alt="Mana Icon"><p>Mana</p></div>
+<div class="item"><img src="https://i.postimg.cc/5y4t92jv/Kawagoe-Icon.jpg" alt="Kawagoe Icon"><p>Kyouji</p></div>
+<div class="item"><img src="https://i.postimg.cc/j2MSDYJ1/Mikimoto-Icon.jpg" alt="Mikimoto Icon"><p>Masaomi</p></div>
+<div class="item"><img src="https://i.postimg.cc/gcsJS8BK/Shiizaki-Icon.jpg" alt="Shiizaki Icon"><p>Hinako</p></div>
+<div class="item"><img src="https://i.postimg.cc/sgQgg8fn/Nakatsugawa-Icon.jpg" alt="Nakatsugawa Icon"><p>Munechika</p></div>
+<div class="item"><img src="https://i.postimg.cc/qvPMhLzp/Minowa-Icon.jpg" alt="Minowa Icon"><p>Kozue</p></div>
+<div class="item"><img src="https://i.postimg.cc/s25fphh7/Elliot-Icon.jpg" alt="Elliot Icon"><p>Woodman</p></div>
+<div class="item"><img src="https://i.postimg.cc/rmcVgw1b/Karen-Icon.jpg" alt="Karen Icon"><p>Karen</p></div>
+<div class="item"><img src="https://i.postimg.cc/76VxRrXL/MARIA-AI-Icon.jpg" alt="MARIA AI Icon"><p>MARIA</p></div>
+
+        </div>
+    </div>
+
+    <div id="dem" class="tab-content">
+        <h2>Deus Ex Machina (DEM)</h2>
+        <div class="list">
+            <div class="item"><img src="dem1.png" alt="DEM Icon"><p>DEM</p></div>
+            <!-- Add more items here -->
+            <div class="item"><img src="https://i.postimg.cc/yx8V4pry/Isaac-Icon.jpg" alt="Isaac Icon"><p>Westcott</p></div>
+<div class="item"><img src="https://i.postimg.cc/x8p90GwD/Ellen-Icon.jpg" alt="Ellen Icon"><p>Ellen</p></div>
+<div class="item"><img src="https://i.postimg.cc/v80YLMcq/Artemisia-Icon.jpg" alt="Artemisia Icon"><p>Artemisia</p></div>
+<div class="item"><img src="https://i.postimg.cc/CLdFct8F/Jessica-Icon.jpg" alt="Jessica Icon"><p>Jessica</p></div>
+<div class="item"><img src="https://i.postimg.cc/rFbq3JG5/Paddington-Icon.jpg" alt="Paddington Icon"><p>James</p></div>
+
+        </div>
+    </div>
+
+    <div id="ast" class="tab-content">
+        <h2>Anti-Spirit Team (AST)</h2>
+        <div class="list">
+            <div class="item"><img src="ast1.png" alt="AST Icon"><p>AST</p></div>
+            <!-- Add more items here -->
+            <div class="item"><img src="https://i.postimg.cc/7Z2qk2Xd/Ryouko-Icon.jpg" alt="Ryouko Icon"><p>Ryouko</p></div>
+<div class="item"><img src="https://i.postimg.cc/MGJqKpFT/Mikie-Icon.jpg" alt="Mikie Icon"><p>Mikie</p></div>
+<div class="item"><img src="https://i.postimg.cc/9fPV4H6B/Mildred-Icon.jpg" alt="Mildred Icon"><p>Mildred</p></div>
+
+        </div>
+    </div>
+
+    <div id="sss" class="tab-content">
+        <h2>Special Sorcery Service (SSS)</h2>
+        <div class="list">
+            <div class="item"><img src="sss1.png" alt="SSS Icon"><p>SSS</p></div>
+            <!-- Add more items here -->
+            <div class="item"><img src="https://i.postimg.cc/tTXbWmyG/Cecile-Icon.jpg" alt="Cecile Icon"><p>Cecile</p></div>
+<div class="item"><img src="https://i.postimg.cc/TwC69qYL/Ashley-Icon.jpg" alt="Ashley Icon"><p>Ashley</p></div>
+<div class="item"><img src="https://i.postimg.cc/br5jXynq/Leonora-Icon.jpg" alt="Leonora Icon"><p>Leonora</p></div>
+<div class="item"><img src="https://i.postimg.cc/wx4zRVGn/Minerva-Icon.jpg" alt="Minerva Icon"><p>Minerva</p></div>
+
+        </div>
+    </div>
+
+    <div id="raizen" class="tab-content">
+        <h2>Raizen High School</h2>
+        <div class="list">
+            <div class="item"><img src="raizen1.png" alt="Raizen High School Icon"><p>Raizen</p></div>
+            <!-- Add more items here -->
+            <div class="item"><img src="https://i.postimg.cc/8PFSRv8c/Tamae-Icon.jpg" alt="Tamae Icon"><p>Tamae</p></div>
+<div class="item"><img src="https://i.postimg.cc/9FvjJfVp/Tonomachi-Icon.jpg" alt="Tonomachi Icon"><p>Hiroto</p></div>
+<div class="item"><img src="https://i.postimg.cc/k5y3JFS1/Ai-Icon.jpg" alt="Ai Icon"><p>Ai</p></div>
+<div class="item"><img src="https://i.postimg.cc/mD2xtzNb/Mai-Icon.jpg" alt="Mai Icon"><p>Mai</p></div>
+<div class="item"><img src="https://i.postimg.cc/SsZB8SDc/Mii-Icon.jpg" alt="Mii Icon"><p>Mii</p></div>
+
+        </div>
+    </div>
+
+    <div id="other" class="tab-content">
+        <h2>Other Characters</h2>
+        <div class="list">
+            <div class="item"><img src="other1.png" alt="Other Characters Icon"><p>Others</p></div>
+            <!-- Add more items here -->
+            <div class="item"><img src="https://i.postimg.cc/kGBkv0pz/Haruko-Icon.jpg" alt="Haruko Icon"><p>Haruko</p></div>
+<div class="item"><img src="https://i.postimg.cc/zv64tdmB/Tatsuo-Icon.jpg" alt="Tatsuo Icon"><p>Tatsuo</p></div>
+<div class="item"><img src="https://i.postimg.cc/Pf7G5qLj/Sawa-Icon.jpg" alt="Sawa Icon"><p>Sawa</p></div>
+<div class="item"><img src="https://i.postimg.cc/xTNwJSHb/Asahi-Icon.jpg" alt="Asahi Icon"><p>Asahi</p></div>
+<div class="item"><img src="https://i.postimg.cc/13xLDYc7/Nagisa-Icon.jpg" alt="Nagisa Icon"><p>Nagisa</p></div>
+<div class="item"><img src="https://i.postimg.cc/t4h8ktBq/Hiroki-Takajo-Icon.png" alt="Hiroki Takajo Icon"><p>Takajo</p></div>
+<div class="item"><img src="https://i.postimg.cc/7LwdWGRg/Kanon-Icon.png" alt="Kanon Icon"><p>Kanon</p></div>
+<div class="item"><img src="https://i.postimg.cc/Pqy9sfG0/Matsurika-Icon-2.png" alt="Matsurika Icon"><p>Matsurika</p></div>
+
+        </div>
+    </div>
+
+    <div id="quasi" class="tab-content">
+        <h2>Quasi-Spirits</h2>
+        <div class="list">
+            <div class="item"><img src="quasi1.png" alt="Quasi-Spirits Icon"><p>Quasi-Spirits</p></div>
+            <!-- Add more items here -->
+<div class="item"><img src="https://i.postimg.cc/4xgXX3M3/Hibiki-Icon.jpg" alt="Hibiki Icon"><p>Hibiki</p></div>
+<div class="item"><img src="https://i.postimg.cc/XvmK5D7K/Aiai-Icon.jpg" alt="Aiai Icon"><p>Aiai</p></div>
+<div class="item"><img src="https://i.postimg.cc/02PY7Sx4/Ayame-Icon.jpg" alt="Ayame Icon"><p>Ayame</p></div>
+<div class="item"><img src="https://i.postimg.cc/dV0GxKhm/Yui-Icon.jpg" alt="Yui Icon"><p>Yui</p></div>
+<div class="item"><img src="https://i.postimg.cc/9XtTXfTY/Doll-Master-Icon.jpg" alt="Doll Master Icon"><p>Doll Master</p></div>
+<div class="item"><img src="https://i.postimg.cc/02VwmHV6/False-Proxy-Icon.jpg" alt="False Proxy Icon"><p>False Proxy</p></div>
+<div class="item"><img src="https://i.postimg.cc/qvY6D6V4/Tsuan-Icon.jpg" alt="Tsuan Icon"><p>Tsuan</p></div>
+<div class="item"><img src="https://i.postimg.cc/9f7R6XCT/Isami-Icon.jpg" alt="Isami Icon"><p>Isami</p></div>
+<div class="item"><img src="https://i.postimg.cc/Ssb2k0xP/Sheri-Icon.jpg" alt="Sheri Icon"><p>Sheri</p></div>
+<div class="item"><img src="https://i.postimg.cc/vTQ4xW9L/Furue-Icon.jpg" alt="Furue Icon"><p>Furue</p></div>
+<div class="item"><img src="https://i.postimg.cc/rsQK1KN6/Rinemu-Icon.jpg" alt="Rinemu Icon"><p>Rinemu</p></div>
+<div class="item"><img src="https://i.postimg.cc/Njy5XGyV/Mizuha-Icon.jpg" alt="Mizuha Icon"><p>Mizuha</p></div>
+<div class="item"><img src="https://i.postimg.cc/pTBTvp79/Ariadne-Icon.jpg" alt="Ariadne Icon"><p>Ariadne</p></div>
+<div class="item"><img src="https://i.postimg.cc/yN4YSmCg/Kareha-Icon.jpg" alt="Kareha Icon"><p>Kareha</p></div>
+<div class="item"><img src="https://i.postimg.cc/J4SR9Nn6/Retsumi-Icon.jpg" alt="Retsumi Icon"><p>Retsumi</p></div>
+<div class="item"><img src="https://i.postimg.cc/Sx8mqnYy/Yuri-Icon.jpg" alt="Yuri Icon"><p>Yuri</p></div>
+<div class="item"><img src="https://i.postimg.cc/bvhpvq11/Oka-Icon.jpg" alt="Oka Icon"><p>Oka</p></div>
+<div class="item"><img src="https://i.postimg.cc/CKsYB94X/Maya-Icon.jpg" alt="Maya Icon"><p>Maya</p></div>
+<div class="item"><img src="https://i.postimg.cc/HxSg35Rt/Haraka-Icon.jpg" alt="Haraka Icon"><p>Haraka</p></div>
+<div class="item"><img src="https://i.postimg.cc/50yG4rKw/Carte-Icon.jpg" alt="Carte Icon"><p>Carte</p></div>
+<div class="item"><img src="https://i.postimg.cc/sxqRCzVQ/Mayuka-Icon.jpg" alt="Mayuka Icon"><p>Mayuka</p></div>
+<div class="item"><img src="https://i.postimg.cc/kXRmF2cx/Cistus-Icon.jpg" alt="Cistus Icon"><p>Cistus</p></div>
+<div class="item"><img src="https://i.postimg.cc/rsv7Y9J5/Rook-Icon.jpg" alt="Rook Icon"><p>Rook</p></div>
+<div class="item"><img src="https://i.postimg.cc/G3V02cC9/Bishop-Icon.jpg" alt="Bishop Icon"><p>Bishop</p></div>
+
+        </div>
+    </div>
+
+    <div id="info" class="tab-content">
+        <h2>Info Anime</h2>
+        <div class="info">
+            <p>Information about the anime, its plot, and other details go here.</p>
+            <!-- Add more details about the anime -->
+        </div>
+    </div>
+
+    <div id="news" class="tab-content">
+        <h2>Berita Terbaru</h2>
+        <div class="news">
+            <div class="news-item"><a href="https://date-a-live5th-anime.com/news/">Latest News</a></div>
+            <!-- Add more news items here -->
+        </div>
+    </div>
+
+    <div id="videos" class="tab-content">
+        <h2>Video Terbaru</h2>
+        <div class="videos">
+            <div class="video-item">
+                <iframe src="https://www.youtube.com/embed/yourvideoid" allowfullscreen></iframe>
+            </div>
+            <!-- Add more videos here -->
+        </div>
+    </div>
+
+    <div id="faq" class="tab-content">
+        <h2>FAQ</h2>
+        <div class="faq">
+            <div class="faq-item">
+                <strong>Q1:</strong> What is Date A Live?
+                <p>Date A Live is a Japanese light novel series written by Kōshi Tachibana and illustrated by Tsunako.</p>
+            </div>
+            <div class="faq-item">
+                <strong>Q2:</strong> How many seasons are there?
+                <p>As of now, there are several seasons of the anime adaptation. Please check the official website for the latest updates.</p>
+            </div>
+            <!-- Add more FAQ items here -->
+            <div class="faq-item">
+            <h3>1. Apa itu Date A Live?</h3>
+            <p>"Date A Live" adalah seri light novel Jepang yang ditulis oleh Koushi Tachibana dengan ilustrasi oleh Tsunako, serta diadaptasi menjadi seri anime populer.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>2. Siapa karakter utama di Date A Live?</h3>
+            <p>Shido Itsuka, seorang siswa SMA yang memiliki kemampuan untuk menyegel kekuatan roh. Karakter lainnya termasuk Tohka Yatogami, Kotori Itsuka, dan Origami Tobiichi.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>3. Bagaimana Shido menyegel kekuatan roh?</h3>
+            <p>Shido menyegel kekuatan roh dengan membuat mereka jatuh cinta padanya dan kemudian mencium mereka.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>4. Berapa banyak musim Date A Live yang ada?</h3>
+            <p>Sejauh ini ada lima musim "Date A Live," termasuk beberapa episode spesial dan OVA.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>5. Apa itu Ratatoskr?</h3>
+            <p>Ratatoskr adalah organisasi yang dipimpin oleh Kotori Itsuka, bertugas menangani roh dengan cara damai dan menjaga mereka agar tidak menyebabkan bencana.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>6. Siapa Tohka Yatogami?</h3>
+            <p>Tohka Yatogami adalah roh pertama yang ditemui Shido, dikenal sebagai "Princess." Dia adalah salah satu roh utama dalam seri ini.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>7. Apa itu "Inverse Form" pada roh?</h3>
+            <p>“Inverse Form” adalah keadaan di mana roh menjadi tidak terkendali dan kekuatannya meningkat drastis, sering kali dipicu oleh emosi negatif yang ekstrem.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>8. Bagaimana cerita di Date A Live berkembang?</h3>
+            <p>Cerita berkembang saat Shido mencoba untuk menyegel roh-roh baru yang muncul di kota, sambil menghadapi ancaman dari organisasi lain seperti DEM Industries.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>9. Siapa Kurumi Tokisaki?</h3>
+            <p>Kurumi Tokisaki adalah salah satu roh paling populer dalam seri ini, dikenal sebagai "Nightmare." Dia memiliki kemampuan untuk memanipulasi waktu dan sangat kompleks serta misterius.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>10. Apa peran AST dalam Date A Live?</h3>
+            <p>AST (Anti-Spirit Team) adalah kelompok militer yang berusaha untuk membasmi roh yang mereka anggap sebagai ancaman bagi manusia.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>11. Apakah ada karakter yang bisa menyegel roh selain Shido?</h3>
+            <p>Saat ini, hanya Shido yang memiliki kemampuan khusus untuk menyegel kekuatan roh melalui cintanya.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>12. Apa hubungan antara Kotori Itsuka dan Shido?</h3>
+            <p>Kotori adalah adik perempuan angkat Shido, yang juga menjadi komandan di organisasi Ratatoskr.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>13. Siapa Ellen Mira Mathers?</h3>
+            <p>Ellen Mira Mathers adalah agen terbaik dari DEM Industries, sebuah perusahaan yang juga mengejar roh untuk kepentingan mereka sendiri.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>14. Apa itu DEM Industries?</h3>
+            <p>DEM Industries adalah organisasi yang menggunakan teknologi canggih untuk berburu roh dan memiliki tujuan yang berbeda dengan Ratatoskr.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>15. Apa itu Sephira Crystal?</h3>
+            <p>Sephira Crystal adalah objek yang memberi roh kekuatan mereka, dan masing-masing roh memiliki kristal yang unik.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>16. Apakah ada game yang berdasarkan Date A Live?</h3>
+            <p>Ya, ada beberapa game video seperti "Date A Live: Rio Reincarnation" dan "Date A Live: Spirit Pledge" yang tersedia di berbagai platform.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>17. Bagaimana peran Reine Murasame dalam cerita ini?</h3>
+            <p>Reine Murasame adalah penasihat teknis untuk Ratatoskr yang memiliki pengetahuan luas tentang roh dan membantu Shido dalam misinya.</p>
+               <!-- FAQ Tambahan -->
+        <div class="faq-item">
+            <h3>18. Apakah Date A Live memiliki spin-off atau adaptasi manga?</h3>
+            <p>Ya, ada beberapa adaptasi manga dan spin-off, termasuk "Date A Origami" yang berfokus pada karakter Origami Tobiichi dan "Date A Party" yang lebih berfokus pada sisi komedi.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>19. Kapan anime Date A Live pertama kali ditayangkan?</h3>
+            <p>Anime "Date A Live" pertama kali ditayangkan pada April 2013.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>20. Siapa yang menyuarakan karakter Shido Itsuka?</h3>
+            <p>Shido Itsuka disuarakan oleh Nobunaga Shimazaki dalam versi Jepang dan Josh Grelle dalam versi Inggris.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>21. Bagaimana hubungan antara Origami Tobiichi dan Shido?</h3>
+            <p>Origami Tobiichi adalah teman sekelas Shido yang awalnya memiliki perasaan bermusuhan terhadap roh, tetapi akhirnya bergabung dengan Shido dan berperan penting dalam ceritanya.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>22. Apa yang membuat Kurumi Tokisaki begitu populer?</h3>
+            <p>Kurumi Tokisaki populer karena karakternya yang kompleks, penampilan yang ikonik, dan kekuatan untuk memanipulasi waktu, membuatnya menjadi salah satu roh paling menarik di seri ini.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>23. Apa tujuan utama dari organisasi DEM Industries?</h3>
+            <p>DEM Industries bertujuan untuk memanfaatkan dan mengendalikan roh demi kekuasaan mereka sendiri, sering kali bertentangan dengan tujuan Ratatoskr.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>24. Apakah ada roh lain yang belum diperkenalkan dalam anime?</h3>
+            <p>Beberapa roh dari novel ringan belum diperkenalkan dalam adaptasi anime, dan mungkin akan muncul di musim-musim mendatang atau dalam format lain.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>25. Apakah Date A Live akan mendapatkan musim baru?</h3>
+            <p>Saat ini, ada konfirmasi untuk musim kelima. Informasi lebih lanjut dapat ditemukan di situs resmi atau pengumuman media sosial terkait.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>26. Bagaimana cara terbaik untuk menonton Date A Live?</h3>
+            <p>Urutan terbaik adalah menonton berdasarkan urutan rilis: mulai dari Season 1 hingga Season 5, termasuk OVA dan episode spesial untuk pengalaman cerita yang lengkap.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>27. Apa saja tema lagu pembuka (opening theme) dari Date A Live?</h3>
+            <p>Beberapa tema lagu pembuka terkenal dari seri ini termasuk "Date A Live" oleh sweet ARMS, "Trust in You," dan "I Swear" oleh fripSide.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>28. Siapa Yoshino dan bagaimana kekuatannya?</h3>
+            <p>Yoshino adalah roh yang dikenal sebagai "Hermit." Dia memiliki kekuatan es dan sering terlihat bersama boneka kelincinya yang bernama "Yoshinon."</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>29. Bagaimana caranya bergabung dengan komunitas penggemar Date A Live?</h3>
+            <p>Anda bisa bergabung dengan komunitas penggemar di media sosial seperti Facebook, Reddit, dan Discord untuk berdiskusi, berbagi fan art, dan mengikuti berita terbaru.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>30. Apakah ada produk merchandise resmi Date A Live?</h3>
+            <p>Ya, ada berbagai macam merchandise resmi seperti figur, kaos, poster, dan banyak lagi yang tersedia di toko-toko anime dan situs web resmi.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>31. Apakah ada film layar lebar untuk Date A Live?</h3>
+            <p>Ya, ada film berjudul "Date A Live: Mayuri Judgment" yang dirilis pada tahun 2015. Film ini memperkenalkan karakter baru, Mayuri, yang unik untuk cerita tersebut.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>32. Apa peran dari Nia Honjou dalam cerita ini?</h3>
+            <p>Nia Honjou adalah roh yang dikenal sebagai "Sister" dengan kemampuan untuk mengetahui segala hal yang tertulis dalam buku dan memiliki peran penting dalam perkembangan cerita di novel ringan.</p>
+        </div>
+<!-- FAQ Tambahan untuk Semua Karakter Date A Live -->
+<div class="faq-item">
+    <h3>33. Siapakah Shido Itsuka?</h3>
+    <p>Shido Itsuka adalah protagonis utama dalam "Date A Live." Dia memiliki kemampuan untuk menyegel kekuatan roh dengan membuat mereka jatuh cinta padanya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>34. Apa peran Tohka Yatogami dalam cerita ini?</h3>
+    <p>Tohka Yatogami adalah roh pertama yang disegel oleh Shido. Dia dikenal sebagai "Princess" dan merupakan salah satu karakter utama dalam seri ini.</p>
+</div>
+
+<div class="faq-item">
+    <h3>35. Siapakah Kotori Itsuka?</h3>
+    <p>Kotori Itsuka adalah adik perempuan Shido dan juga seorang roh. Dia adalah komandan dari Ratatoskr, organisasi yang bertujuan untuk menyegel roh tanpa kekerasan.</p>
+</div>
+
+<div class="faq-item">
+    <h3>36. Apa yang membuat Origami Tobiichi penting?</h3>
+    <p>Origami Tobiichi adalah teman sekelas Shido yang awalnya seorang anggota AST, namun kemudian menjadi roh yang dikenal sebagai "Angel" setelah beberapa peristiwa dramatis.</p>
+</div>
+
+<div class="faq-item">
+    <h3>37. Siapakah Mio Takamiya?</h3>
+    <p>Mio Takamiya adalah roh pertama dan yang paling kuat, juga dikenal sebagai "Spirit of Origin." Dia memainkan peran penting dalam menciptakan roh lainnya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>38. Siapakah Yoshino Himekawa?</h3>
+    <p>Yoshino Himekawa, dikenal sebagai "Hermit," adalah roh kedua yang disegel oleh Shido. Dia memiliki kekuatan es dan selalu ditemani boneka kelinci bernama Yoshinon.</p>
+</div>
+
+<div class="faq-item">
+    <h3>39. Apa yang membuat Kurumi Tokisaki begitu menakutkan?</h3>
+    <p>Kurumi Tokisaki adalah roh ketiga yang dikenal sebagai "Nightmare." Dia dapat memanipulasi waktu dan dikenal sebagai roh paling berbahaya di seri ini.</p>
+</div>
+
+<div class="faq-item">
+    <h3>40. Apa perbedaan antara Kaguya Yamai dan Yuzuru Yamai?</h3>
+    <p>Kaguya Yamai dan Yuzuru Yamai adalah dua roh yang berasal dari satu roh tunggal yang dikenal sebagai "Berserk." Mereka memiliki kekuatan angin dan sering bersaing satu sama lain.</p>
+</div>
+
+<div class="faq-item">
+    <h3>41. Siapakah Miku Izayoi?</h3>
+    <p>Miku Izayoi adalah roh keenam yang dikenal sebagai "Diva." Dia memiliki kemampuan untuk mempengaruhi pikiran orang lain melalui suaranya yang memikat.</p>
+</div>
+
+<div class="faq-item">
+    <h3>42. Apa kemampuan unik Natsumi Kyouno?</h3>
+    <p>Natsumi Kyouno adalah roh ketujuh yang dikenal sebagai "Witch." Dia dapat mengubah penampilannya dan objek lainnya, serta menciptakan ilusi yang kuat.</p>
+</div>
+
+<div class="faq-item">
+    <h3>43. Siapakah Nia Honjou?</h3>
+    <p>Nia Honjou adalah roh kesembilan yang dikenal sebagai "Sister." Dia memiliki kemampuan untuk membaca dan mengetahui segala sesuatu yang tertulis.</p>
+</div>
+
+<div class="faq-item">
+    <h3>44. Apa peran Mukuro Hoshimiya dalam cerita?</h3>
+    <p>Mukuro Hoshimiya adalah roh kesepuluh yang dikenal sebagai "Zodiac." Dia memiliki kekuatan untuk mengunci dan membuka apapun, termasuk ingatan dan kemampuan seseorang.</p>
+</div>
+
+<div class="faq-item">
+    <h3>45. Siapakah Tenka Yatogami?</h3>
+    <p>Tenka Yatogami adalah versi alternatif dari Tohka Yatogami, yang dikenal sebagai "Demon King." Dia memiliki kekuatan yang jauh lebih besar dan kepribadian yang berbeda dari Tohka.</p>
+</div>
+
+<div class="faq-item">
+    <h3>46. Apa yang membuat Mayuri begitu unik?</h3>
+    <p>Mayuri adalah karakter asli dari film "Date A Live: Mayuri Judgment." Dia diciptakan dari emosi para roh dan memiliki kemampuan untuk menyerap energi emosional.</p>
+</div>
+
+<div class="faq-item">
+    <h3>47. Siapakah Rinne Sonogami?</h3>
+    <p>Rinne Sonogami adalah karakter dari game "Date A Live: Rinne Utopia." Dia memiliki hubungan yang dekat dengan Shido dalam dunia alternatif permainan.</p>
+</div>
+
+<div class="faq-item">
+    <h3>48. Apa peran Reine Murasame dalam Ratatoskr?</h3>
+    <p>Reine Murasame adalah penasihat utama di Ratatoskr dan memiliki pengetahuan luas tentang roh. Dia juga memiliki koneksi misterius dengan roh asal.</p>
+</div>
+
+<div class="faq-item">
+    <h3>49. Siapakah Isaac Ray Peram Westcott?</h3>
+    <p>Isaac Ray Peram Westcott adalah antagonis utama yang memimpin DEM Industries, organisasi yang mencoba memanfaatkan kekuatan roh untuk kepentingannya sendiri.</p>
+</div>
+
+<div class="faq-item">
+    <h3>50. Apa peran Ellen Mira Mathers dalam DEM?</h3>
+    <p>Ellen Mira Mathers adalah komandan tertinggi DEM Industries dan salah satu penyihir paling kuat yang pernah ada. Dia setia kepada Westcott dan menjalankan misi dengan kejam.</p>
+</div>
+
+<!-- Tambahan karakter lainnya -->
+<div class="faq-item">
+    <h3>51. Siapakah Tamae Okamine?</h3>
+    <p>Tamae Okamine adalah guru wali kelas Shido yang sering terlibat dalam kejadian-kejadian yang melibatkan roh tanpa dia sadari.</p>
+</div>
+
+<div class="faq-item">
+    <h3>52. Apa peran Nia dan Mukuro di cerita terbaru?</h3>
+    <p>Nia dan Mukuro adalah roh baru yang diperkenalkan dalam novel ringan terbaru, masing-masing dengan kemampuan unik dan cerita latar yang menarik.</p>
+</div>
+
+<div class="faq-item">
+    <h3>53. Bagaimana cara Nia mengetahui informasi rahasia?</h3>
+    <p>Nia menggunakan buku yang disebut "Raziel" untuk membaca segala sesuatu yang tertulis, membuatnya salah satu karakter paling berpengetahuan dalam seri ini.</p>
+</div>
+
+<div class="faq-item">
+    <h3>54. Siapakah White Queen?</h3>
+    <p>White Queen adalah roh antagonis utama dalam game "Date A Live: Ren Dystopia" yang memiliki kekuatan luar biasa dan memanipulasi roh lain untuk mencapai tujuannya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>55. Apa tujuan organisasi Anti-Spirit Team (AST)?</h3>
+    <p>AST bertujuan untuk melawan dan menghancurkan roh yang dianggap ancaman terhadap manusia. Mereka menggunakan senjata canggih dan teknologi militer untuk menghadapi roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>56. Apa itu Special Sorcery Service (SSS)?</h3>
+    <p>SSS adalah unit khusus yang berfokus pada pemanfaatan sihir dan teknologi untuk menangani ancaman supranatural, termasuk roh dan entitas sihir lainnya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>57. Siapakah Leonora Ashcroft?</h3>
+    <p>Leonora Ashcroft adalah komandan unit SSS yang sangat terampil dan memiliki keahlian dalam mengendalikan sihir tingkat tinggi.</p>
+</div>
+
+<div class="faq-item">
+    <h3>58. Apa itu Quasi-Spirits?</h3>
+    <p>Quasi-Spirits adalah roh atau entitas yang tidak sepenuhnya roh, tetapi memiliki kekuatan serupa dan sering kali diciptakan atau dimanipulasi oleh kekuatan lain.</p>
+</div>
+
+<div class="faq-item">
+    <h3>59. Bagaimana cara bergabung dengan komunitas penggemar Date A Live?</h3>
+    <p>Anda bisa bergabung dengan komunitas penggemar di media sosial seperti Facebook, Reddit, dan Discord untuk berdiskusi, berbagi fan art, dan mengikuti berita terbaru.</p>
+</div>
+
+<div class="faq-item">
+    <h3>60. Apakah ada produk merchandise resmi Date A Live?</h3>
+    <p>Ya, ada berbagai macam merchandise resmi seperti figur, kaos, poster, dan banyak lagi yang tersedia di toko-toko anime dan situs web resmi.</p>
+</div>
+
+<!-- Tambahkan FAQ lainnya jika diperlukan -->
+<!-- FAQ Tambahan untuk Semua Karakter Date A Live -->
+<div class="faq-item">
+    <h3>61. Siapakah Maria Arusu?</h3>
+    <p>Maria Arusu adalah roh dari game "Date A Live: Rio Reincarnation." Dia dikenal sebagai "Crown Princess" dan memiliki kemampuan manipulasi cahaya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>62. Apa peran Marina Arusu dalam cerita?</h3>
+    <p>Marina Arusu adalah karakter dari game "Date A Live: Rio Reincarnation" yang merupakan adik dari Maria Arusu. Dia memiliki kemampuan untuk memanipulasi air dan sering berinteraksi dengan karakter utama.</p>
+</div>
+
+<div class="faq-item">
+    <h3>63. Siapakah Rio Tachibana?</h3>
+    <p>Rio Tachibana adalah karakter utama dari game "Date A Live: Rio Reincarnation." Dia adalah roh yang dikenal sebagai "Magic Princess" dan memiliki kemampuan untuk memanipulasi elemen.</p>
+</div>
+
+<div class="faq-item">
+    <h3>64. Apa kemampuan unik Ren Murasame?</h3>
+    <p>Ren Murasame adalah roh yang memiliki kekuatan untuk mengontrol medan magnet dan listrik. Dia sering kali menggunakan kemampuannya untuk melawan musuh yang kuat.</p>
+</div>
+
+<div class="faq-item">
+    <h3>65. Siapakah Nibelcole?</h3>
+    <p>Nibelcole adalah roh antagonis dari game "Date A Live: Spirit Pledge." Dia memiliki kekuatan es yang sangat kuat dan bertindak sebagai musuh utama dalam cerita.</p>
+</div>
+
+<div class="faq-item">
+    <h3>66. Apa yang membuat Yamai Kazuya berbeda?</h3>
+    <p>Yamai Kazuya adalah karakter dari game "Date A Live: Spirit Pledge." Dia memiliki kekuatan untuk mengendalikan elemen tanah dan memiliki kemampuan bertarung yang tangguh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>67. Siapakah Beast?</h3>
+    <p>Beast adalah roh dari game "Date A Live: Spirit Pledge." Dia dikenal sebagai roh yang sangat kuat dan memiliki kemampuan untuk berubah bentuk menjadi berbagai bentuk binatang.</p>
+</div>
+
+<div class="faq-item">
+    <h3>68. Apa peran Reine Murasame dalam cerita?</h3>
+    <p>Reine Murasame adalah anggota penting dari Ratatoskr, yang memiliki pengetahuan luas tentang roh dan sering memberikan nasihat kepada Shido dan timnya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>69. Siapakah Kannazuki?</h3>
+    <p>Kannazuki adalah karakter dari "Date A Live" yang memiliki kemampuan untuk memanipulasi kekuatan roh dan sering kali terlibat dalam konflik antara roh dan manusia.</p>
+</div>
+
+<div class="faq-item">
+    <h3>70. Apa peran Mana Takamiya?</h3>
+    <p>Mana Takamiya adalah karakter yang memiliki hubungan dekat dengan Shido dan Kotori. Dia memiliki kemampuan untuk mengendalikan kekuatan roh dan sering kali berperan sebagai penengah dalam konflik.</p>
+</div>
+
+<div class="faq-item">
+    <h3>71. Siapakah Kyouji Kawagoe?</h3>
+    <p>Kyouji Kawagoe adalah karakter dari "Date A Live" yang dikenal sebagai seorang ahli strategi dan memiliki keahlian dalam pertempuran melawan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>72. Apa yang membuat Masaomi Mikimoto unik?</h3>
+    <p>Masaomi Mikimoto adalah karakter yang memiliki kemampuan untuk membaca pikiran dan emosi orang lain. Dia sering berperan dalam mengungkap misteri yang melibatkan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>73. Siapakah Hinako Shiizaki?</h3>
+    <p>Hinako Shiizaki adalah karakter dari "Date A Live" yang memiliki kekuatan untuk memanipulasi elemen api dan sering terlibat dalam konflik dengan roh lain.</p>
+</div>
+
+<div class="faq-item">
+    <h3>74. Apa peran Munechika Nakatsugawa?</h3>
+    <p>Munechika Nakatsugawa adalah karakter yang memiliki kemampuan untuk memanipulasi energi spiritual dan seringkali membantu Shido dalam pertarungan melawan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>75. Siapakah Kozue Minowa?</h3>
+    <p>Kozue Minowa adalah karakter dari "Date A Live" yang memiliki kemampuan untuk menciptakan ilusi dan seringkali digunakan untuk memanipulasi musuh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>76. Apa yang membuat Woodman Elliot menonjol?</h3>
+    <p>Woodman Elliot adalah karakter yang dikenal sebagai ahli dalam penggunaan teknologi canggih untuk menghadapi roh dan sering berperan sebagai pembantu Shido.</p>
+</div>
+
+<div class="faq-item">
+    <h3>77. Siapakah Karen?</h3>
+    <p>Karen adalah karakter dari "Date A Live" yang memiliki kemampuan untuk mengendalikan waktu dan sering kali terlibat dalam peristiwa besar dalam cerita.</p>
+</div>
+
+<div class="faq-item">
+    <h3>78. Apa itu MARIA AI?</h3>
+    <p>MARIA AI adalah sistem kecerdasan buatan yang dikembangkan untuk membantu dalam berbagai aspek, termasuk pengumpulan informasi tentang roh dan pengendalian sihir.</p>
+</div>
+
+<div class="faq-item">
+    <h3>79. Siapakah Ellen Mira Mathers?</h3>
+    <p>Ellen Mira Mathers adalah karakter antagonis dari DEM Industries yang dikenal karena kemampuannya dalam manipulasi roh dan strategi perang.</p>
+</div>
+
+<div class="faq-item">
+    <h3>80. Apa peran Artemisia dalam cerita?</h3>
+    <p>Artemisia adalah karakter yang memiliki kemampuan untuk memanipulasi elemen air dan sering terlibat dalam konflik dengan roh lainnya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>81. Siapakah Jessica?</h3>
+    <p>Jessica adalah karakter dari "Date A Live" yang dikenal sebagai ahli dalam ilmu sihir dan sering kali memberikan dukungan kepada Shido dalam berbagai situasi.</p>
+</div>
+
+<div class="faq-item">
+    <h3>82. Apa tujuan James Paddington?</h3>
+    <p>James Paddington adalah karakter yang memiliki tujuan untuk mengendalikan roh demi kepentingan pribadi dan sering berkonflik dengan Shido.</p>
+</div>
+
+<div class="faq-item">
+    <h3>83. Siapakah Ryouko Izayoi?</h3>
+    <p>Ryouko Izayoi adalah anggota dari Anti-Spirit Team (AST) yang dikenal karena kemampuannya dalam bertarung melawan roh dan keterampilannya dalam strategi.</p>
+</div>
+
+<div class="faq-item">
+    <h3>84. Apa peran Mikie dalam cerita?</h3>
+    <p>Mikie adalah karakter dari Anti-Spirit Team (AST) yang memiliki kemampuan untuk menggunakan senjata khusus dalam pertempuran melawan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>85. Siapakah Mildred?</h3>
+    <p>Mildred adalah karakter dari Special Sorcery Service (SSS) yang dikenal karena kemampuannya dalam sihir pertahanan dan perlindungan terhadap roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>86. Apa kemampuan Minerva?</h3>
+    <p>Minerva adalah anggota dari Special Sorcery Service (SSS) yang memiliki kemampuan dalam sihir ofensif dan sering terlibat dalam pertempuran melawan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>87. Siapakah Cecile?</h3>
+    <p>Cecile adalah karakter dari Special Sorcery Service (SSS) yang memiliki kemampuan untuk memanipulasi elemen tanah dan sering membantu dalam pertarungan melawan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>88. Apa peran Ashley dalam cerita?</h3>
+    <p>Ashley adalah anggota dari Special Sorcery Service (SSS) yang dikenal dengan kemampuan manipulasi energi dan sering kali berperan dalam pertempuran melawan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>89. Siapakah Leonora dalam Special Sorcery Service (SSS)?</h3>
+    <p>Leonora adalah karakter dari Special Sorcery Service (SSS) yang dikenal karena kemampuannya dalam sihir penyembuhan dan perlindungan.</p>
+</div>
+
+<div class="faq-item">
+    <h3>90. Apa tujuan Tamae Okamine?</h3>
+    <p>Tamae Okamine adalah karakter dari Raizen High School yang memiliki tujuan untuk membantu Shido dan teman-temannya dalam menghadapi roh dan masalah terkait.</p>
+</div>
+
+<div class="faq-item">
+    <h3>91. Siapakah Yumiko?</h3>
+    <p>Yumiko adalah karakter dari "Date A Live" yang dikenal karena kemampuannya dalam memanipulasi elemen cahaya dan sering berkonflik dengan karakter utama.</p>
+</div>
+
+<div class="faq-item">
+    <h3>92. Apa yang membuat Kyouko unik?</h3>
+    <p>Kyouko adalah karakter yang memiliki kemampuan untuk memanipulasi kekuatan spiritual dan sering kali berperan dalam melawan roh dan entitas supranatural lainnya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>93. Siapakah Kazuha?</h3>
+    <p>Kazuha adalah karakter dari "Date A Live" yang dikenal karena kemampuannya dalam sihir penyembuhan dan sering kali memberikan dukungan kepada Shido dan teman-temannya.</p>
+</div>
+<!-- FAQ Tambahan untuk Karakter Date A Live -->
+<div class="faq-item">
+    <h3>94. Siapakah Shido Itsuka?</h3>
+    <p>Shido Itsuka adalah protagonis utama dari "Date A Live." Dia memiliki kemampuan untuk menyegel kekuatan roh dengan cara membuat mereka jatuh cinta kepadanya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>95. Apa kekuatan Tohka Yatogami?</h3>
+    <p>Tohka Yatogami adalah roh yang dikenal sebagai "Princess of the Blades." Kekuatan utamanya adalah manipulasi ruang dan waktu serta kemampuan bertarung yang sangat baik.</p>
+</div>
+
+<div class="faq-item">
+    <h3>96. Apa yang membuat Kotori Itsuka unik?</h3>
+    <p>Kotori Itsuka adalah adik perempuan Shido yang juga merupakan roh dengan kemampuan manipulasi api dan energi. Dia memiliki peran penting dalam organisasi Ratatoskr.</p>
+</div>
+
+<div class="faq-item">
+    <h3>97. Siapakah Origami Tobiichi?</h3>
+    <p>Origami Tobiichi adalah karakter dari "Date A Live" yang merupakan anggota Anti-Spirit Team (AST). Dia memiliki kemampuan untuk menggunakan senjata berteknologi tinggi dalam pertempuran melawan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>98. Apa peran Mio Takamiya dalam cerita?</h3>
+    <p>Mio Takamiya adalah karakter yang dikenal sebagai roh dari "Date A Live" dengan kemampuan manipulasi elemen udara dan sering membantu Shido dalam menghadapi konflik.</p>
+</div>
+
+<div class="faq-item">
+    <h3>99. Siapakah Yoshino?</h3>
+    <p>Yoshino adalah roh yang dikenal dengan kemampuan manipulasi es dan memiliki karakter yang lembut serta sering kali bersahabat dengan Shido dan teman-temannya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>100. Apa yang membuat Kurumi Tokisaki terkenal?</h3>
+    <p>Kurumi Tokisaki adalah roh yang dikenal sebagai "Nightmare" dan memiliki kemampuan untuk memanipulasi waktu serta mengendalikan pasukan bayangan.</p>
+</div>
+
+<div class="faq-item">
+    <h3>101. Siapakah Kaguya Yamai?</h3>
+    <p>Kaguya Yamai adalah roh dari "Date A Live" yang memiliki kekuatan untuk memanipulasi elemen cahaya dan sering kali berkonflik dengan roh lainnya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>102. Apa peran Yuzuru Yamai dalam cerita?</h3>
+    <p>Yuzuru Yamai adalah saudari kembar Kaguya yang memiliki kemampuan untuk memanipulasi elemen gelap dan sering berperan sebagai antagonis dalam cerita.</p>
+</div>
+
+<div class="faq-item">
+    <h3>103. Siapakah Miku Nakano?</h3>
+    <p>Miku Nakano adalah roh dari "Date A Live" dengan kemampuan untuk memanipulasi suara dan sering terlibat dalam pertarungan melawan roh lainnya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>104. Apa kemampuan Natsumi Sumeragi?</h3>
+    <p>Natsumi Sumeragi adalah roh dengan kemampuan untuk memanipulasi elemen tanah dan sering berperan dalam membantu Shido dan teman-temannya dalam pertempuran.</p>
+</div>
+
+<div class="faq-item">
+    <h3>105. Siapakah Nia Honjo?</h3>
+    <p>Nia Honjo adalah karakter dari "Date A Live" yang memiliki kemampuan untuk memanipulasi kekuatan spiritual dan sering terlibat dalam peristiwa besar dalam cerita.</p>
+</div>
+
+<div class="faq-item">
+    <h3>106. Apa yang membuat Mukuro Hoshimiya unik?</h3>
+    <p>Mukuro Hoshimiya adalah roh dari "Date A Live" yang dikenal dengan kemampuan manipulasi medan gravitasi dan sering berperan dalam pertempuran melawan musuh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>107. Siapakah Tenka Matoi?</h3>
+    <p>Tenka Matoi adalah karakter dari "Date A Live" yang memiliki kekuatan untuk memanipulasi elemen petir dan sering terlibat dalam konflik besar dalam cerita.</p>
+</div>
+
+<div class="faq-item">
+    <h3>108. Apa peran Mayuri Saegusa dalam cerita?</h3>
+    <p>Mayuri Saegusa adalah karakter yang dikenal sebagai anggota dari Special Sorcery Service (SSS) dengan kemampuan manipulasi elemen api dan sering berperan dalam membantu Shido.</p>
+</div>
+
+<div class="faq-item">
+    <h3>109. Siapakah Rinne Arisuin?</h3>
+    <p>Rinne Arisuin adalah roh dari "Date A Live" yang memiliki kemampuan untuk memanipulasi kekuatan roh dan sering terlibat dalam peristiwa besar dalam cerita.</p>
+</div>
+
+<div class="faq-item">
+    <h3>110. Apa yang membuat Maria Arusu menonjol?</h3>
+    <p>Maria Arusu adalah roh dari game "Date A Live: Rio Reincarnation" yang dikenal dengan kemampuan manipulasi cahaya dan sering membantu Shido dalam pertempuran.</p>
+</div>
+
+<div class="faq-item">
+    <h3>111. Siapakah Marina Arusu?</h3>
+    <p>Marina Arusu adalah adik dari Maria Arusu dan memiliki kemampuan untuk memanipulasi elemen air serta sering terlibat dalam konflik dengan roh lainnya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>112. Apa peran Rio Tachibana dalam cerita?</h3>
+    <p>Rio Tachibana adalah karakter utama dari game "Date A Live: Rio Reincarnation" dengan kekuatan untuk memanipulasi elemen dan sering membantu Shido dalam petualangannya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>113. Siapakah Ren Murasame?</h3>
+    <p>Ren Murasame adalah roh dari game "Date A Live: Spirit Pledge" dengan kemampuan untuk mengontrol medan magnet dan listrik serta berperan sebagai musuh utama.</p>
+</div>
+
+<div class="faq-item">
+    <h3>114. Apa yang membuat Nibelcole terkenal?</h3>
+    <p>Nibelcole adalah roh antagonis yang memiliki kekuatan es yang sangat kuat dan sering terlibat dalam konflik besar dalam cerita.</p>
+</div>
+
+<div class="faq-item">
+    <h3>115. Siapakah Yamai Kazuya?</h3>
+    <p>Yamai Kazuya adalah karakter dari game "Date A Live: Spirit Pledge" dengan kekuatan untuk mengendalikan elemen tanah dan sering terlibat dalam pertempuran melawan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>116. Apa peran Beast dalam cerita?</h3>
+    <p>Beast adalah roh dari game "Date A Live: Spirit Pledge" yang dikenal dengan kemampuan untuk berubah bentuk menjadi berbagai bentuk binatang dan sering terlibat dalam pertarungan.</p>
+</div>
+
+<div class="faq-item">
+    <h3>117. Siapakah Reine Murasame?</h3>
+    <p>Reine Murasame adalah anggota Ratatoskr yang memiliki pengetahuan luas tentang roh dan sering memberikan nasihat kepada Shido dan timnya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>118. Apa yang membuat Kannazuki menonjol?</h3>
+    <p>Kannazuki adalah karakter dengan kemampuan untuk memanipulasi kekuatan roh dan sering terlibat dalam konflik antara roh dan manusia.</p>
+</div>
+
+<div class="faq-item">
+    <h3>119. Siapakah Mana Takamiya?</h3>
+    <p>Mana Takamiya adalah karakter yang memiliki hubungan dekat dengan Shido dan Kotori serta memiliki kemampuan untuk mengendalikan kekuatan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>120. Apa peran Kyouji Kawagoe dalam cerita?</h3>
+    <p>Kyouji Kawagoe adalah karakter dari "Date A Live" yang dikenal sebagai ahli strategi dan memiliki keahlian dalam pertempuran melawan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>121. Siapakah Masaomi Mikimoto?</h3>
+    <p>Masaomi Mikimoto adalah karakter dengan kemampuan untuk membaca pikiran dan emosi orang lain serta sering terlibat dalam mengungkap misteri terkait roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>122. Apa yang membuat Hinako Shiizaki unik?</h3>
+    <p>Hinako Shiizaki adalah karakter dengan kemampuan untuk memanipulasi elemen api dan sering terlibat dalam pertarungan dengan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>123. Siapakah Munechika Nakatsugawa?</h3>
+    <p>Munechika Nakatsugawa adalah karakter dari "Date A Live" yang dikenal dengan kemampuan manipulasi energi dan sering terlibat dalam melawan roh dan entitas supranatural.</p>
+</div>
+
+<div class="faq-item">
+    <h3>124. Apa peran Kozue Minowa dalam cerita?</h3>
+    <p>Kozue Minowa adalah karakter yang memiliki kemampuan untuk memanipulasi elemen tanah dan sering memberikan dukungan kepada Shido dan timnya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>125. Siapakah Woodman Elliot?</h3>
+    <p>Woodman Elliot adalah karakter dengan kemampuan untuk memanipulasi elemen kayu dan sering terlibat dalam pertempuran melawan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>126. Apa yang membuat Karen Arise menonjol?</h3>
+    <p>Karen Arise adalah karakter yang memiliki kekuatan untuk memanipulasi elemen air dan sering terlibat dalam konflik dengan roh lainnya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>127. Siapakah MARIA AI?</h3>
+    <p>MARIA AI adalah AI canggih dalam cerita yang memiliki kemampuan untuk memanipulasi data dan sering terlibat dalam peristiwa penting dalam dunia roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>128. Apa peran Isaac Westcott dalam cerita?</h3>
+    <p>Isaac Westcott adalah antagonis utama dalam "Date A Live" yang memiliki kekuatan untuk memanipulasi kekuatan roh dan sering berkonflik dengan Shido dan timnya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>129. Siapakah Ellen?</h3>
+    <p>Ellen adalah karakter dengan kemampuan untuk memanipulasi elemen angin dan sering berperan sebagai musuh dalam cerita.</p>
+</div>
+
+<div class="faq-item">
+    <h3>130. Apa yang membuat Artemisia menonjol?</h3>
+    <p>Artemisia adalah karakter dari "Date A Live" yang memiliki kemampuan untuk memanipulasi kekuatan spiritual dan sering terlibat dalam peristiwa besar dalam cerita.</p>
+</div>
+
+<div class="faq-item">
+    <h3>131. Siapakah Jessica?</h3>
+    <p>Jessica adalah karakter dengan kekuatan untuk memanipulasi elemen tanah dan sering berperan sebagai sekutu dalam cerita.</p>
+</div>
+
+<div class="faq-item">
+    <h3>132. Apa peran James Paddington dalam cerita?</h3>
+    <p>James Paddington adalah karakter dengan kemampuan untuk memanipulasi kekuatan roh dan sering terlibat dalam melawan musuh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>133. Siapakah Ryouko Sakaki?</h3>
+    <p>Ryouko Sakaki adalah anggota Anti-Spirit Team (AST) yang memiliki kekuatan untuk memanipulasi energi dan sering berperan dalam melawan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>134. Apa yang membuat Mikie Kiyose unik?</h3>
+    <p>Mikie Kiyose adalah karakter dari "Date A Live" yang dikenal dengan kemampuannya dalam memanipulasi kekuatan spiritual dan sering terlibat dalam konflik besar.</p>
+</div>
+
+<div class="faq-item">
+    <h3>135. Siapakah Mildred McLeod?</h3>
+    <p>Mildred McLeod adalah anggota Special Sorcery Service (SSS) yang memiliki kekuatan untuk memanipulasi elemen api dan sering terlibat dalam melawan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>136. Apa peran Minerva di dalam cerita?</h3>
+    <p>Minerva adalah karakter yang dikenal dengan kemampuannya dalam memanipulasi elemen cahaya dan sering memberikan dukungan kepada Shido dan timnya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>137. Siapakah Cecile Farrell?</h3>
+    <p>Cecile Farrell adalah anggota Special Sorcery Service (SSS) yang memiliki kemampuan untuk memanipulasi elemen tanah dan sering terlibat dalam pertempuran melawan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>138. Apa yang membuat Ashley Williams menonjol?</h3>
+    <p>Ashley Williams adalah karakter dari "Date A Live" dengan kemampuan untuk memanipulasi elemen air dan sering terlibat dalam peristiwa penting dalam cerita.</p>
+</div>
+
+<div class="faq-item">
+    <h3>139. Siapakah Leonora Hartmann?</h3>
+    <p>Leonora Hartmann adalah anggota Special Sorcery Service (SSS) dengan kekuatan untuk memanipulasi energi spiritual dan sering membantu Shido dalam pertempuran.</p>
+</div>
+
+<div class="faq-item">
+    <h3>140. Apa peran Tamae Minowa dalam cerita?</h3>
+    <p>Tamae Minowa adalah karakter dari "Date A Live" yang dikenal dengan kemampuannya dalam memanipulasi elemen udara dan sering terlibat dalam peristiwa penting dalam cerita.</p>
+</div>
+
+<div class="faq-item">
+    <h3>141. Siapakah Hiroto Tonomachi?</h3>
+    <p>Hiroto Tonomachi adalah karakter dengan kemampuan untuk memanipulasi kekuatan spiritual dan sering berperan sebagai sekutu dalam cerita.</p>
+</div>
+
+<div class="faq-item">
+    <h3>142. Apa yang membuat Ai Takamiya unik?</h3>
+    <p>Ai Takamiya adalah karakter dari "Date A Live" yang memiliki kemampuan untuk memanipulasi elemen cahaya dan sering terlibat dalam konflik dengan roh lainnya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>143. Siapakah Mai Shiranui?</h3>
+    <p>Mai Shiranui adalah karakter dengan kemampuan untuk memanipulasi elemen api dan sering berperan dalam pertempuran melawan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>144. Apa peran Mii Fujimoto dalam cerita?</h3>
+    <p>Mii Fujimoto adalah karakter yang dikenal dengan kemampuannya dalam memanipulasi elemen tanah dan sering terlibat dalam membantu Shido dan timnya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>145. Siapakah Haruko Takamiya?</h3>
+    <p>Haruko Takamiya adalah karakter dari "Date A Live" yang dikenal sebagai ibu dari Shido dan Kotori, dengan kekuatan untuk memanipulasi elemen air.</p>
+</div>
+
+<div class="faq-item">
+    <h3>146. Apa yang membuat Tatsuo Takamiya menonjol?</h3>
+    <p>Tatsuo Takamiya adalah karakter dengan kemampuan untuk memanipulasi kekuatan spiritual dan sering terlibat dalam melawan roh dalam cerita.</p>
+</div>
+
+<div class="faq-item">
+    <h3>147. Siapakah Sawa Igarashi?</h3>
+    <p>Sawa Igarashi adalah karakter dengan kemampuan untuk memanipulasi elemen angin dan sering berperan dalam pertempuran dengan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>148. Apa peran Asahi Yoshida dalam cerita?</h3>
+    <p>Asahi Yoshida adalah karakter yang dikenal dengan kemampuannya dalam memanipulasi elemen cahaya dan sering membantu Shido dalam konflik dengan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>149. Siapakah Nagisa Sakaki?</h3>
+    <p>Nagisa Sakaki adalah karakter dari "Date A Live" yang memiliki kekuatan untuk memanipulasi elemen air dan sering terlibat dalam peristiwa besar dalam cerita.</p>
+</div>
+
+<div class="faq-item">
+    <h3>150. Apa yang membuat Hiroki Takajo unik?</h3>
+    <p>Hiroki Takajo adalah karakter dengan kemampuan untuk membaca pikiran dan emosi orang lain serta sering terlibat dalam mengungkap misteri terkait roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>151. Siapakah Kanon Sakaki?</h3>
+    <p>Kanon Sakaki adalah karakter dari "Date A Live" yang dikenal dengan kemampuannya dalam memanipulasi elemen api dan sering terlibat dalam pertempuran melawan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>152. Apa peran Matsurika Tokisaki dalam cerita?</h3>
+    <p>Matsurika Tokisaki adalah karakter yang memiliki kemampuan untuk memanipulasi elemen cahaya dan sering terlibat dalam melawan roh dalam cerita.</p>
+</div>
+
+<div class="faq-item">
+    <h3>153. Siapakah Hibiki Shiga?</h3>
+    <p>Hibiki Shiga adalah karakter dari "Date A Live" yang dikenal dengan kemampuannya dalam memanipulasi elemen tanah dan sering terlibat dalam pertempuran dengan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>154. Apa yang membuat Shuri Takahashi menonjol?</h3>
+    <p>Shuri Takahashi adalah karakter dengan kemampuan untuk memanipulasi kekuatan roh dan sering terlibat dalam konflik dengan roh lainnya.</p>
+</div>
+
+<div class="faq-item">
+    <h3>155. Siapakah Kira Haruka?</h3>
+    <p>Kira Haruka adalah karakter dengan kekuatan untuk memanipulasi elemen air dan sering berperan dalam membantu Shido dan timnya dalam pertempuran.</p>
+</div>
+
+<div class="faq-item">
+    <h3>156. Apa peran Shizuka Shimomura dalam cerita?</h3>
+    <p>Shizuka Shimomura adalah karakter yang dikenal dengan kemampuannya dalam memanipulasi elemen udara dan sering terlibat dalam melawan roh dalam cerita.</p>
+</div>
+
+<div class="faq-item">
+    <h3>157. Siapakah Aoi Tanaka?</h3>
+    <p>Aoi Tanaka adalah karakter dari "Date A Live" yang memiliki kekuatan untuk memanipulasi elemen tanah dan sering berperan dalam pertempuran melawan roh.</p>
+</div>
+
+<div class="faq-item">
+    <h3>158. Apa yang membuat Kotori Fujinuma unik?</h3>
+    <p>Kotori Fujinuma adalah karakter dengan kemampuan untuk memanipulasi kekuatan spiritual dan sering terlibat dalam peristiwa besar dalam cerita.</p>
+</div>
+
+<div class="faq-item">
+    <h3>159. Siapakah Rei Sakurada?</h3>
+    <p>Rei Sakurada adalah karakter yang dikenal dengan kemampuannya dalam memanipulasi elemen cahaya dan sering berperan dalam membantu Shido dan timnya dalam pertempuran.</p>
+</div>
+
+<div class="faq-item">
+    <h3>160. Apa peran Saki Kondo dalam cerita?</h3>
+    <p>Saki Kondo adalah karakter dari "Date A Live" yang memiliki kekuatan untuk memanipulasi elemen api dan sering terlibat dalam pertempuran dengan roh.</p>
+</div>
+            <p>Follow us on:
+                <a href="https://twitter.com/yourprofile" target="_blank"><img src="twitter-icon.png" alt="Twitter" style="width: 20px; height: 20px;"></a>
+                <a href="https://facebook.com/yourprofile" target="_blank"><img src="facebook-icon.png" alt="Facebook" style="width: 20px; height: 20px;"></a>
+                <a href="https://instagram.com/yourprofile" target="_blank"><img src="instagram-icon.png" alt="Instagram" style="width: 20px; height: 20px;"></a>
+            </p>
+        </div>
+        <!-- Footer --><!-- Footer --><!-- Footer -->
+<footer class="footer">
+    <div class="container">
+      <p class="footer-text">© 2024 Date A Live. All rights reserved.</p>
+      <p class="footer-links">
+        <a href="https://ktokisaki.github.io/Tokisaki-Kurumi-/" target="_blank">kobo</a> | 
+        <a href="https://kazukikazami03.github.io/Kazuki-kazami/" target="_blank">yrei</a>
+        
+      </p>
+    </div>
+  </footer>
+    <!-- JavaScript for Tabs -->
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(function(content) {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(function(tab) {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector('.tab[onclick="showTab(\'' + tabId + '\')"]').classList.add('active');
+        }
+    </script>
+</body>
+</html>
